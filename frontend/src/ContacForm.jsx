@@ -1,9 +1,9 @@
-import {useState} from "react"
+import {useState} from "react";
 
 const ContactForm = ({ }) => {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -23,8 +23,8 @@ const ContactForm = ({ }) => {
         }
         const response = await fetch(url, options)
         if (response.status !== 201 && response.status !== 200) {
-            const message = await response.json()
-            alert(message.message)
+            const data = await response.json()
+            alert(data.message)
         } else {
             // successful
         }
@@ -59,7 +59,7 @@ const ContactForm = ({ }) => {
                     onChange = {(e) => setEmail(e.target.value)}
                     />
             </div>
-            <button type = "subit">Create Contact</button>
+            <button type = "submit">Create Contact</button>
         </form>
     );
 };
